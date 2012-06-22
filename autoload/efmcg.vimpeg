@@ -7,14 +7,13 @@
 .root_element = 'efm'
 .ignore_case = false
 
-; example from vim-olive left here to get us started
-
-
-efm        ::= ( keyword | string | regex ) +
-regex      ::= '/' ( '\\\\' | '\\/' | !'/' '.' ) '/' whitespace +
-string     ::= "'" ( "'" "'" + | !"'" '.' ) * "'" whitespace +
-keyword    ::= '\h\w*' whitespace +
-comment    ::= '#.*' eol whitespace *
-whitespace ::= ( '\s' | eol ) +
+efm        ::= efmline+
+efmline    ::= efmset | comment
+efmset     ::= (whitespace* ( keyword | string | regex))+ eol
+regex      ::= '/' ( '\\\\' | '\\/' | !'/' '.' )* '/'
+string     ::= "'" ( "'" "'"+ | !"'" '.' )* "'"
+keyword    ::= '\a\+' -> #keyword
+comment    ::= '#.*' eol
+whitespace ::= ( '\s' | eol )
 eol        ::= '\n'
 eof        ::= '\_$'

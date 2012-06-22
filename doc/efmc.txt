@@ -12,8 +12,8 @@ Help on using efmc                                                    *efmc*
 ==============================================================================
  1. INTRODUCTION                                                  *efmc-intro*
 
-efmc is an |errorformat| compiler for Vim. The syntax for Vim's builtin error
-formats is defined in |errorformat| and is difficult to read because of its
+efmc is an |'errorformat'| compiler for Vim. The syntax for Vim's builtin error
+formats (defined in |errorformat|) is difficult to read because of its
 terse scanf-like symbols.  efmc aims to solve that problem by providing a DSL
 (Domain Specific Langauge) that is a bit more verbose with separate entries
 split across multiple lines.
