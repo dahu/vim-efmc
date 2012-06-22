@@ -1,0 +1,21 @@
+# %A%f:%l:\ %m,%-Z%p^,%-C%.%#
+
+multiline
+  file ':' line ': ' message
+  ignore end with pointer '^'
+  ignore continue /.*/
+
+# %A%f:%l:\ %m,%+Z%p^,%+C%.%#,%-G%.%#
+
+multiline
+  file ':' line ': ' message
+  consume end with pointer '^'
+  consume continue /.*/
+ignore general /.*/
+
+# %Z%f:%l:\ %m,%A%p^,%-G%*[^sl]%.%#
+
+end with file ':' line ': ' message
+multiline
+  pointer '^'
+  ignore general skip [^sl] /.*/

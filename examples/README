@@ -1,16 +1,18 @@
-I still haven't thought about the   Separate file name   specifiers:
+(consider changing   continue -> next  and  tie -> continue   (to mirror similar ideas in C loops))
 
-%O
-%P
-%Q
+Separate file name specifiers:
 
+%O = overread-file   ?!
+%P = push-file
+%Q = pop-file
 
+Ignoring elements:
 
-I'm not yet sure what the following do exactly:
+%-  = ignore
+%+  = consume
 
-%-  = ignore message
-%+  = whole message
+(ignore and consume can only be followed by: multiline [type], tie (continue), continue (next), end, overread-file, push-file, pop-file and general)
 
-%-G = ignore message
-%+G = general message
+%-G = ignore general
+%+G = consume general
 
