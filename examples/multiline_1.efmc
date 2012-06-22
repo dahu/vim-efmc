@@ -1,0 +1,8 @@
+# %EError\ %n,%Cline\ %l,%Ccolumn\ %c,%Z%m
+
+multiline error
+'Error '  number
+'line '   line
+'column ' col
+end
+message

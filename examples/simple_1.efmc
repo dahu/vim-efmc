@@ -1,0 +1,6 @@
+# %f:%l:%c:\ %m,%f:%l:\ %m,In\ file\ included\ from\ %f:%l:%c,\ %\\+from\ %f:%l%m
+
+file ':' line ':' col ' ' message
+file ':' line ': ' message
+'In file included from ' file ':' line ':' col
+/ \+from / file ':' line message
