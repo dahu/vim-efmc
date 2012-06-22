@@ -1,0 +1,40 @@
+; vim-efmc - Vim Errorformat Compiler
+; Barry Arthur & Israel Chauca, 2012 06 22
+
+.skip_white = false
+.namespace = 'efmc'
+.parser_name = 'efmc#parser'
+.root_element = 'efm'
+
+; example from vim-olive left here to get us started
+
+vitag      ::=  'vi:'
+vimtag     ::=  'vim' vers? ':'
+extag      ::=  'ex:'
+tag1       ::=  vimtag | vitag
+tag2       ::=  tag1 | extag
+leader1    ::=  (ospace lotext)* space tag2
+leader2    ::=  tag1
+leader     ::=  leader1 | leader2
+modeline1  ::=  leader ospace m1_options colon? ospace
+modeline2  ::=  leader ospace set m2_options colon totext
+modeline   ::=  '^' (modeline2 | modeline1) '$'
+
+vers       ::=  comp num | num
+comp       ::=  '<' | '=' | '>'
+num        ::=  '\d\{3}'
+lotext     ::=  !tag2 '\S\+'
+totext     ::=  '.*'
+ospace     ::=  '\s*'
+space      ::=  '\s\+'
+set        ::=  'set\? \s*'
+colon      ::=  '\s*:'
+
+m1_options ::=  option (colons option)*
+m2_options ::=  option (colons option &colon)*
+option     ::=  val_opt | tag_opt
+tag_opt    ::=  '[a-z]\+'
+val_opt    ::=  tag_opt assignment
+assignment ::=  '\s*=' !'\s' value
+value      ::=  ('\\:' | !'\\' '[^ :]')+
+colons     ::=  colon* ospace

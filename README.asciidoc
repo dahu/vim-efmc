@@ -1,0 +1,19 @@
+vim-efmc
+========
+
+_Vim Error Format Compiler_
+
+Uses a DSL to more easily specify Vim's +:help 'errorformat+
+
+.Example:
+----
+file ':' line ':' col ' ' message
+file ':' line ': ' message
+'In file included from ' file ':' line ':' col
+' \+from ' file ':' line message
+----
+
+.Will generate:
+----
+%f:%l:%c:\ %m,%f:%l:\ %m,In\ file\ included\ from\ %f:%l:%c,\ %\\+from\ %f:%l%m
+----
