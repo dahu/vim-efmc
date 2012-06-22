@@ -1,0 +1,14 @@
+# %.%#,%E%>Error in line %l of %f:,%Z%m
+
+# NOTE:
+## tie - Start next line with current pattern again, rather
+         than the default behaviour of starting at the first
+         efm pattern for every line in errorfile.
+
+/.*/
+multiline error
+  tie 'Error in line ' line ' of ' file ':'
+ends with message
+
+# Error in line 123 of foo.c:
+# unknown variable "i"

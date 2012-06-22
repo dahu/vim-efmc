@@ -1,0 +1,16 @@
+I still haven't thought about the   Separate file name   specifiers:
+
+%O
+%P
+%Q
+
+
+
+I'm not yet sure what the following do exactly:
+
+%-  = ignore message
+%+  = whole message
+
+%-G = ignore message
+%+G = general message
+

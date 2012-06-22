@@ -1,0 +1,24 @@
+# %C\ %.%#,%A\ \ File\ \"%f\"\\,\ line\ %l%.%#,%Z%[%^\ ]%\\@=%m
+
+# NOTE:
+## multiline [type] - if type is unspecified, use %A
+## continue -> %C
+
+multiline
+  continue / .*/
+  '  File "' file '", line ' line /.*/
+ends with /[^ ]\@=/ message
+
+#  1	==============================================================
+#  2	FAIL: testGetTypeIdCachesResult (dbfacadeTest.DjsDBFacadeTest)
+#  3	--------------------------------------------------------------
+#  4	Traceback (most recent call last):
+#  5	  File "unittests/dbfacadeTest.py", line 89, in testFoo
+#  6	    self.assertEquals(34, dtid)
+#  7	  File "/usr/lib/python2.2/unittest.py", line 286, in
+#  8	 failUnlessEqual
+#  9	    raise self.failureException, \
+# 10	AssertionError: 34 != 33
+# 11
+# 12	--------------------------------------------------------------
+# 13	Ran 27 tests in 0.063s

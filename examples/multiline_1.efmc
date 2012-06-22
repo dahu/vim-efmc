@@ -1,8 +1,12 @@
 # %EError\ %n,%Cline\ %l,%Ccolumn\ %c,%Z%m
 
 multiline error
-'Error '  number
-'line '   line
-'column ' col
-end
-message
+  'Error '  number
+  'line '   line
+  'column ' col
+ends with message
+
+# 1	Error 275
+# 2	line 42
+# 3	column 3
+# 4	' ' expected after '--'
