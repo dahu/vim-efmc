@@ -33,6 +33,15 @@ generates the corresponding errorformat string:
 ==============================================================================
  2. LANGUAGE SPECIFICATION                       *efmc-language-specification*
 
+Each line in an efmc file specifies a separate match in the resulting
+errorformat string. Each line can contain space separated concatenations of
+'strings', /regular expressions/ or bare keywords.
+
+The keywords are:
+
+file, line, col, virtcol, type, number, message, rest, pointer, scanf *,
+string
+
 It's good to follow Vim's convention on help tags as described in
 |help-context|. Something like this: *:ExCommand* , *'option'* ,
 *i_CTRL-X_CTRL-K* , etc.
