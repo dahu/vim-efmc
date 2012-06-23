@@ -9,11 +9,15 @@
 
 efm        ::= efmline+
 efmline    ::= efmset | comment
-efmset     ::= (whitespace* ( keyword | string | regex))+ eol
-regex      ::= '/' ( '\\\\' | '\\/' | !'/' '.' )* '/'
+efmset     ::= (whitespace* ( skip | keyword | string | regex))+ eol
+regex      ::= '/' ( '\\\\' | '\\/' | !'/' '.' )* '/' -> #regex
 string     ::= "'" ( "'" "'"+ | !"'" '.' )* "'"
+skip       ::= 'skip' whitespace* regex -> #skip
 keyword    ::= '\a\+' -> #keyword
 comment    ::= '#.*' eol
 whitespace ::= ( '\s' | eol )
 eol        ::= '\n'
 eof        ::= '\_$'
+
+; [ [[], '{'], [[...], ' '], [[...], '}'] ]
+

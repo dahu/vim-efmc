@@ -8,7 +8,7 @@ runtime autoload/efmc.vim
 let testname = expand('<sfile>:p:t:r')
 let testexpr = matchstr(testname, '^test_\d\+_\zs[^_]\+')
 exe "edit " . testname . '.in'
-exe "%s/.*/\\=string(g:efmc#parser.GetSym(testexpr).match(submatch(0))['value'])/"
+exe "%s/.*/\\=g:efmc#parser.GetSym(testexpr).match(submatch(0))['value']/"
 exe "write " . testname . ".out"
 quit!
 " vim: set ft=vim:

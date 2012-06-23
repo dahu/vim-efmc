@@ -10,7 +10,7 @@ let s:keywords = {
       \ 'message' : '%m',
       \ 'rest'    : '%r',
       \ 'pointer' : '%p',
-      \ 'scanf'   : '%*',
+      \ 'skip'    : '%*',
       \ 'string'  : '%s',
       \}
 
@@ -23,4 +23,18 @@ func! efmc#keyword(elems)
     echom 'Error: unknon keyword: ' . kw
     return ''
   endif
+endfunc
+
+func! efmc#regex(elems)
+  return efmc#efm_escape(join(map(a:elems[1], 'v:val[1]'), ''))
+endfunc
+
+func! efmc#skip(elems)
+  "echom "keyword: " . string(a:elems)
+  return s:keywords['skip'] . a:elems[2]
+endfunc
+
+" stub this for now
+func! efmc#efm_escape(string)
+  return escape(a:string, '\')
 endfunc
