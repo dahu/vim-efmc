@@ -40,6 +40,16 @@ func! efmc#regex(elems)
   return efmc#efm_escape(efmc#efm_regex(join(map(a:elems[1], 'v:val[1]'), '')))
 endfunc
 
+func! efmc#string(elems)
+  "echom "string: " . string(a:elems)
+  return join(map(a:elems[1], 'v:val[1]'), '')
+endfunc
+
+func! efmc#comment(elems)
+  echom "comment: " . string(a:elems)
+  return ''
+endfunc
+
 func! efmc#skip(elems)
   "echom "keyword: " . string(a:elems)
   " Unsure if I need to reduce all %[ to [

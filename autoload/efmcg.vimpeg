@@ -7,14 +7,14 @@
 .root_element = 'efm'
 .ignore_case = false
 
-efm        ::= efmline+
+efm        ::= efmline+ eof
 efmline    ::= efmset | comment
 efmset     ::= (whitespace* ( skip | keyword | string | regex))+ eol
 regex      ::= '/' ( '\\\\' | '\\/' | !'/' '.' )* '/' -> #regex
-string     ::= "'" ( "'" "'"+ | !"'" '.' )* "'"
+string     ::= "'" ( "''" | !"'" '.' )* "'" -> #string
 skip       ::= 'skip' whitespace* regex -> #skip
 keyword    ::= '\a\+' -> #keyword
-comment    ::= '#.*' eol
+comment    ::= whitespace* '#.*' -> #comment
 whitespace ::= ( '\s' | eol )
 eol        ::= '\n'
 eof        ::= '\_$'
